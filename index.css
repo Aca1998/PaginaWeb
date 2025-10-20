@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+.contenedor {
+  display: flex;
+  height: 100vh;
+}
+
+nav a {   
+  color: white; 
+  text-decoration: none;  
+}
+
+nav a:hover {
+  color: #e60073; 
+}
+
+.izquierda {
+  flex: 1;
+  padding: 50px;
+  background: linear-gradient(to bottom right, #e60073, #111);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.izquierda h3 {
+  font-size: 14px;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.izquierda h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.izquierda p {
+  font-size: 16px;
+  color: #ddd;
+  margin-bottom: 30px;
+
+}
+
+.botones {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn.primario {
+  background: #ff007f;
+  color: #fff;
+}
+
+.btn.primario:hover{
+    color: black; 
+}
+
+.derecha {
+  flex: 1;
+  background: #222;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.imagen {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-150px);
+}
+
+.texto {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  font-size: 20px;
+  border-top: 1px solid #333;
+}
