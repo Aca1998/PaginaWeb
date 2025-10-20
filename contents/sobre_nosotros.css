@@ -1,7 +1,6 @@
 
 body {
-    font-family: 'Roboto', sans-serif;
-  
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4; 
     color: #333; 
     margin: 0;
@@ -79,17 +78,16 @@ h2 {
     border-radius: 4px; 
     padding: 30px;
     margin-bottom: 25px; 
-
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     border: none; 
     width: 100%; 
 }
 
 .card p {
-    font-size: 1em; /* Tamaño de texto de párrafo */
+    font-size: 1em; 
     line-height: 1.6;
     margin: 0;
-    color: #333; /* Color de texto oscuro para las tarjetas blancas */
+    color: #333; 
 }
 
 
@@ -102,7 +100,7 @@ h2 {
 
 
 .card--media .thumb {
-  flex: 0 0 320px;   /*ancho fijo de la imagen*/
+  flex: 0 0 320px;   
   max-width: 100%;
 }
 
