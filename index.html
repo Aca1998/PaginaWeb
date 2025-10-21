@@ -1,47 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Web Bicicletas</title>
-  <link rel="stylesheet" href="index.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Tienda de bicicletas modernas: carretera, montaña, gravel y e-bikes. Envío rápido y garantía premium." />
+  <title>Alfonso Bikes</title>
+
+  <!-- Fuente opcional sin JS: se puede comentar si prefieres local -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <div class="contenedor">
-   
-    <div class="columna izquierda">
-      <h3>WEB BICICLETAS</h3>
-      <h1>Muévete sin límites,<br> pedalea con energía.</h1>
-      <p>
-        El futuro de la bicicleta ya está aquí.<br>
-        Conquista cada kilómetro con mucha más autonomía y libertad<br>
-        y con una movilidad sostenible.
-      </p>
-      <div class="botones">
-        <a href="/contents/productos.html" class="btn primario">Ver Bicicletas</a>
-      
-      </div>
-    </div>
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container topbar__wrap">
+      <a class="brand" href="#">
+        <!-- Logo simple en texto (podemos cambiar a SVG más tarde) -->
+        <span class="brand__logo">Alfonso</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
+      </a>
 
-    <div class="columna derecha">
-      <nav>
-        <span class="menu">&#9776;</span>
-        <a href="/contents/productos.html">Tienda</a>
-        <a href="/contents/sobre_nosotros.html">Sobre Nosotros</a>
-        <a href="/contents/contacto.html">Contacto</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#categorias" class="nav__link">Categorías</a>
+        <a href="#destacados" class="nav__link">Destacados</a>
+        <a href="#ventajas" class="nav__link">Ventajas</a>
+        <a href="#newsletter" class="nav__link">Ofertas</a>
       </nav>
 
- 
-      <div class="imagen">
-        <img src="img/5aed97cc208cc94b7bff8de1.webp" alt="Bicicleta de ejemplo">
+      <div class="actions">
+        <a class="actions__btn actions__btn--ghost" href="#">Acceder</a>
+        <a class="actions__btn actions__btn--solid" href="#">Ver catálogo</a>
       </div>
 
-      <div class="texto">
-        <div><strong>25 km/hr</strong><br>Velocidad Media</div>
-        <div><strong>70 km</strong><br>Capacidad Batería</div>
-        <div><strong>3.5h</strong><br>Tiempo de Carga</div>
-        <div><strong>16.9 kg</strong><br>Peso</div>
+      <button class="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Héroe -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__media" role="img" aria-label="Ciclista en carretera al amanecer"></div>
+    <div class="container hero__content">
+      <h1 id="hero-title" class="hero__title">
+        Pedalea el futuro.
+      </h1>
+      <p class="hero__subtitle">
+        Bicicletas de alto rendimiento para carretera, montaña, gravel y e-bikes. Diseño minimalista, materiales premium.
+      </p>
+      <div class="hero__cta">
+        <a href="#destacados" class="btn btn--primary">Comprar ahora</a>
+        <a href="#categorias" class="btn btn--ghost">Explorar categorías</a>
+      </div>
+      <ul class="hero__badges" aria-label="Beneficios">
+        <li>Envío 24/48h</li>
+        <li>Garantía 3 años</li>
+        <li>Montaje profesional</li>
+      </ul>
+    </div>
+    <a href="#categorias" class="scroll-hint" aria-label="Bajar a categorías">▼</a>
+  </section>
+
+  <!-- Categorías -->
+  <section id="categorias" class="section section--tight" aria-labelledby="cat-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="cat-title">Categorías</h2>
+        <p class="section__desc">Elige tu terreno y nosotros ponemos la velocidad.</p>
+      </div>
+
+      <div class="grid grid--cats">
+        <a class="card card--cat" href="" aria-label="Bicicletas de carretera">
+          <div class="card__media card__media--road" role="img" aria-label="Bici de carretera"></div>
+          <div class="card__body">
+            <h3>Carretera</h3>
+            <p>Ligereza extrema y aerodinámica refinada.</p>
+          </div>
+        </a>
+
+        <a class="card card--cat" href="#" aria-label="Bicicletas de montaña">
+          <div class="card__media card__media--mtb" role="img" aria-label="Bici de montaña"></div>
+          <div class="card__body">
+            <h3>MTB</h3>
+            <p>Suspensión capaz para senderos exigentes.</p>
+          </div>
+        </a>
+
+        <a class="card card--cat" href="#" aria-label="Bicicletas gravel">
+          <div class="card__media card__media--gravel" role="img" aria-label="Bici gravel"></div>
+          <div class="card__body">
+            <h3>Gravel</h3>
+            <p>Aventura sin límites, asfalto y pista.</p>
+          </div>
+        </a>
+
+        <a class="card card--cat" href="#" aria-label="Bicicletas eléctricas">
+          <div class="card__media card__media--ebike" role="img" aria-label="Bici eléctrica"></div>
+          <div class="card__body">
+            <h3>E-Bikes</h3>
+            <p>Asistencia inteligente y autonomía real.</p>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Destacados -->
+  <section id="destacados" class="section" aria-labelledby="feat-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="feat-title">Destacados</h2>
+        <p class="section__desc">Modelos top seleccionados por nuestro equipo.</p>
+      </div>
+
+      <div class="grid grid--products">
+        <!-- Producto 1 -->
+        <article class="product-card">
+          <div class="product-card__img product-card__img--1" role="img" aria-label="Bicicleta de carretera negra mate"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">VXR Aero 9</h3>
+            <p class="product-card__meta">Carbono | 7.2 kg</p>
+            <p class="product-card__price">2.399 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="product-card">
+          <div class="product-card__img product-card__img--2" role="img" aria-label="Bicicleta de montaña color arena"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">TrailMaster X</h3>
+            <p class="product-card__meta">Aluminio | 12 vel</p>
+            <p class="product-card__price">1.299 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="product-card">
+          <div class="product-card__img product-card__img--3" role="img" aria-label="Bicicleta gravel verde oliva"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Gravel One</h3>
+            <p class="product-card__meta">Acero cromoly | 11 vel</p>
+            <p class="product-card__price">1.549 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="product-card">
+          <div class="product-card__img product-card__img--4" role="img" aria-label="Bicicleta eléctrica urbana gris"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">City E-Flow</h3>
+            <p class="product-card__meta">Motor 250W | 90 km</p>
+            <p class="product-card__price">1.999 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ventajas -->
+  <section id="ventajas" class="section section--alt" aria-labelledby="adv-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="adv-title">Por qué elegirnos</h2>
+        <p class="section__desc">Experiencia ciclista de principio a fin.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🚚</div>
+          <h3>Envío Exprés</h3>
+          <p>Entrega en 24/48h con seguro a todo riesgo.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🛠️</div>
+          <h3>Montaje Pro</h3>
+          <p>Ajustes de cambios y frenos listos para rodar.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🛡️</div>
+          <h3>Garantía Premium</h3>
+          <p>3 años de tranquilidad y servicio técnico propio.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">💬</div>
+          <h3>Asesoramiento</h3>
+          <p>Te ayudamos a escoger talla y componentes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="section" aria-labelledby="news-title">
+    <div class="container newsletter">
+      <div class="newsletter__copy">
+        <h2 id="news-title">Recibe ofertas y novedades</h2>
+        <p>10% de descuento en tu primera compra. Sin spam, lo prometemos.</p>
+      </div>
+      <form class="newsletter__form" action="#" method="post">
+        <label class="sr-only" for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" placeholder="tu@email.com" required>
+        <button type="submit" class="btn btn--primary">Suscribirme</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pie -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#">
+          <span class="brand__logo">Velóx</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
+        </a>
+        <p>© <span id="year">2025</span> Velóx Bikes. Todos los derechos reservados.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Garantía</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Tiendas</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Strava</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accesibilidad -->
+  <span class="sr-only" aria-live="polite">Contenido actualizado</span>
 </body>
 </html>
