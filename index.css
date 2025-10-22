@@ -203,7 +203,7 @@ a{ color: inherit; text-decoration: none; }
   background-image:
     radial-gradient(circle at 30% 20%, rgba(167,139,250,.25), transparent 40%),
     linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1800&auto=format&fit=crop");
+    url("img/fondoindex.webp");
   background-size: cover; background-position: center;
   filter: saturate(110%) contrast(105%);
   transform: scale(1.03);
@@ -294,15 +294,15 @@ a{ color: inherit; text-decoration: none; }
 }
 .card__media--mtb{
   background-image:
-    url("https://images.unsplash.com/photo-1611771341257-b81947e4b9a1?q=80&w=1400&auto=format&fit=crop");
+    url("img/imgconfigmtb-negro.png");
 }
 .card__media--gravel{
   background-image:
-    url("https://images.unsplash.com/photo-1520974722031-4de5ea58a7ae?q=80&w=1400&auto=format&fit=crop");
+    url("img/imgconfigcarretera-rojo.png");
 }
 .card__media--ebike{
   background-image:
-    url("https://images.unsplash.com/photo-1605719124119-8b227d6f008c?q=80&w=1400&auto=format&fit=crop");
+    url("img/ebike.jpg");
 }
 
 /* ---------- Product cards ---------- */
@@ -335,19 +335,19 @@ a{ color: inherit; text-decoration: none; }
 /* Imágenes de ejemplo */
 .product-card__img--1{
   background-image:
-    url("https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1400&auto=format&fit=crop");
+    url("img/BHrs1.png");
 }
 .product-card__img--2{
   background-image:
-    url("https://images.unsplash.com/photo-1603575449299-b3b38cafe7f0?q=80&w=1400&auto=format&fit=crop");
+    url("img/imgconfigmtb-verde.png");
 }
 .product-card__img--3{
   background-image:
-    url("https://images.unsplash.com/photo-1529429612779-c8e40ef2f36e?q=80&w=1400&auto=format&fit=crop");
+    url("img/imgconfigcarretera-verde.png");
 }
 .product-card__img--4{
   background-image:
-    url("https://images.unsplash.com/photo-1610800238367-7b95a1da89cd?q=80&w=1400&auto=format&fit=crop");
+    url("img/ebike.jpg");
 }
 
 .product-card__info{
@@ -470,4 +470,122 @@ a:hover{ filter: brightness(1.06); }
 @media (max-width: 420px){
   .hero__cta .btn{ width: 100%; }
   .hero__badges{ flex-wrap: wrap; }
+}
+
+/* A partir de aqui es para el login */
+
+/* Overlay & modal base (oculto por defecto) */
+#login-toggle { display: none; }
+
+/* contenedor del overlay, por defecto invisible */
+.login-overlay{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(3,6,18,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+  z-index: 80;
+}
+
+/* el dialogo */
+.login-modal{
+  width: min(440px, calc(100% - 32px));
+  background: linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0.20));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 20px 60px rgba(2,6,23,0.6);
+  transform: translateY(8px) scale(.99);
+  transition: transform .18s ease, opacity .18s ease;
+  opacity: 0;
+}
+
+/* cuando el checkbox está checked, mostrar overlay y modal */
+#login-toggle:checked ~ .login-overlay{
+  opacity: 1;
+  pointer-events: auto;
+}
+#login-toggle:checked ~ .login-overlay .login-modal{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Header modal */
+.login-modal__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  margin-bottom:.6rem;
+}
+.login-modal__head h2{
+  font-size:1.05rem;
+  margin:0;
+}
+.login-close{
+  cursor:pointer;
+  font-weight:700;
+  display:inline-grid;
+  place-items:center;
+  width:36px; height:36px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Form styles (siguen la estética del site) */
+.login-form{
+  display:grid;
+  gap:.6rem;
+  margin-top:.4rem;
+}
+.login-label{
+  font-size:.85rem;
+  color:var(--muted);
+  font-weight:600;
+}
+.login-form input[type="email"],
+.login-form input[type="password"]{
+  padding:.85rem .9rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,1);
+  background: rgba(255,255,255,0.03);
+  color:var(--text);
+  outline:none;
+}
+.login-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  margin-top:.25rem;
+  margin-bottom:.4rem;
+}
+.login-remember{ display:flex; align-items:center; gap:.4rem; color:var(--muted); font-size:.9rem; }
+.login-forgot{ color:var(--muted); font-size:.9rem; text-decoration:underline; }
+
+.login-footer{
+  margin-top:.5rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.login-footer a{ color:var(--text); font-weight:700; text-decoration:underline; }
+
+/* Clic fuera para cerrar: hacemos que al clicar el overlay se cierre (label implícito) */
+.login-overlay{
+  /* colocamos un area clickable tras el modal */
+  display:grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items:center;
+}
+.login-modal{ grid-row: 2; }
+
+/* pequeño ajuste para móviles */
+@media (max-width:420px){
+  .login-modal{ padding:.8rem; border-radius:12px; }
+  .login-close{ width:32px; height:32px; }
 }

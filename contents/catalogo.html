@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Catálogo de Velóx Bikes — todas las bicicletas disponibles: carretera, MTB, gravel y e-bikes." />
+  <title>Velóx Bikes — Catálogo</title>
+
+  <!-- Mantengo las mismas fuentes que en index.html -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+  <!-- Barra superior (mismo estilo que index) -->
+  <header class="topbar">
+    <div class="container topbar__wrap">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">Velóx</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html" class="nav__link">Inicio</a>
+        <a href="#catalogo" class="nav__link">Catálogo</a>
+        <a href="#ventajas" class="nav__link">Ventajas</a>
+        <a href="#newsletter" class="nav__link">Ofertas</a>
+      </nav>
+
+      <div class="actions">
+        <a class="actions__btn actions__btn--ghost" href="#">Acceder</a>
+        <a class="actions__btn actions__btn--solid" href="#catalogo">Ver catálogo</a>
+      </div>
+
+      <button class="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Cabecera de catálogo (hero pequeño) -->
+  <section class="section section--tight" aria-labelledby="cat-head">
+    <div class="container">
+      <div class="section__head">
+        <h1 id="cat-head">Catálogo completo</h1>
+        <p class="section__desc">Explora todas nuestras bicicletas — filtra por categoría, rango de precio y tipo.</p>
+      </div>
+
+      <!-- Filtros simples (solo visual, sin JS) -->
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;">
+        <div style="display:flex; gap:.5rem; align-items:center;">
+          <label for="f-cat" style="color:var(--muted); font-weight:600;">Categoría:</label>
+          <select id="f-cat" name="categoria" style="padding:.5rem .7rem; border-radius:10px; background:rgba(255,255,255,.04); color:var(--text); border:1px solid rgba(255,255,255,.08);">
+            <option value="">Todas</option>
+            <option value="carretera">Carretera</option>
+            <option value="mtb">MTB</option>
+            <option value="gravel">Gravel</option>
+            <option value="ebike">E-Bike</option>
+          </select>
+        </div>
+
+        <div style="display:flex; gap:.5rem; align-items:center;">
+          <label for="f-price" style="color:var(--muted); font-weight:600;">Precio:</label>
+          <select id="f-price" name="precio" style="padding:.5rem .7rem; border-radius:10px; background:rgba(255,255,255,.04); color:var(--text); border:1px solid rgba(255,255,255,.08);">
+            <option value="">Todos</option>
+            <option value="0-500">0 - 500 €</option>
+            <option value="500-1500">500 - 1.500 €</option>
+            <option value="1500-3000">1.500 - 3.000 €</option>
+            <option value="3000+">3000 €+</option>
+          </select>
+        </div>
+
+        <div style="display:flex; gap:.5rem; align-items:center;">
+          <a href="#catalogo" class="btn btn--ghost">Limpiar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <main id="catalogo" class="section">
+    <div class="container">
+      <div class="grid grid--products">
+        <!-- Repite product-card como plantilla; cambia imágenes/textos según necesites -->
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('/img/orbea-orca-m11-ltd-t52.jpg');" role="img" aria-label="VXR Aero 9 - Carbono"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Orbea Orca Aero 5.0</h3>
+            <p class="product-card__meta">Carretera · Carbono · 7.2 kg</p>
+            <p class="product-card__price">2.399 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1603575449299-b3b38cafe7f0?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="TrailMaster X - Aluminio"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">TrailMaster X</h3>
+            <p class="product-card__meta">MTB · Aluminio · 12 vel</p>
+            <p class="product-card__price">1.299 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1529429612779-c8e40ef2f36e?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="Gravel One - Acero cromoly"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Gravel One</h3>
+            <p class="product-card__meta">Gravel · Acero cromoly · 11 vel</p>
+            <p class="product-card__price">1.549 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1610800238367-7b95a1da89cd?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="City E-Flow - E-Bike urbana"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">City E-Flow</h3>
+            <p class="product-card__meta">E-Bike · Motor 250W · 90 km</p>
+            <p class="product-card__price">1.999 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <!-- Más ejemplos: añade tantos artículos como necesites -->
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c889a4f0a1?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="VXR Sprint - Carretera"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">VXR Sprint</h3>
+            <p class="product-card__meta">Carretera · Aluminio · 9.1 kg</p>
+            <p class="product-card__price">999 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1502544887138-0f74f3a09f6b?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="AllTerrain 29 - MTB"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">AllTerrain 29</h3>
+            <p class="product-card__meta">MTB · Doble suspensión · 29"</p>
+            <p class="product-card__price">1.749 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="Gravel Ranger - Gravel"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Gravel Ranger</h3>
+            <p class="product-card__meta">Gravel · Carbono · 10 vel</p>
+            <p class="product-card__price">2.099 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img" style="background-image: url('https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1400&auto=format&fit=crop');" role="img" aria-label="Urban Glide - E-Bike"></div>
+          <div class="product-card__info">
+            <h3 class="product-card__title">Urban Glide</h3>
+            <p class="product-card__meta">E-Bike · Motor 350W · 75 km</p>
+            <p class="product-card__price">2.299 €</p>
+            <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Paginación visual (sin funcionalidad) -->
+      <div style="display:flex; gap:.5rem; justify-content:center; margin-top:2rem;">
+        <a href="#" class="btn btn--ghost">«</a>
+        <a href="#" class="btn btn--ghost">1</a>
+        <a href="#" class="btn btn--ghost">2</a>
+        <a href="#" class="btn btn--ghost">3</a>
+        <a href="#" class="btn btn--ghost">»</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Ventajas (reutilizo la sección) -->
+  <section id="ventajas" class="section section--alt" aria-labelledby="adv-title">
+    <div class="container">
+      <div class="section__head">
+        <h2 id="adv-title">Por qué elegirnos</h2>
+        <p class="section__desc">Envío rápido, montaje profesional y garantía premium en todos los modelos.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🚚</div>
+          <h3>Envío Exprés</h3>
+          <p>Entrega 24/48h con seguro incluido.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🛠️</div>
+          <h3>Montaje Pro</h3>
+          <p>Ajuste y pruebas realizados en tienda.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">🛡️</div>
+          <h3>Garantía Premium</h3>
+          <p>3 años de cobertura y servicio técnico propio.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">💬</div>
+          <h3>Soporte experto</h3>
+          <p>Asesoramiento por tallas y componentes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="section" aria-labelledby="news-title">
+    <div class="container newsletter">
+      <div class="newsletter__copy">
+        <h2 id="news-title">Recibe ofertas y novedades</h2>
+        <p>10% de descuento en tu primera compra.</p>
+      </div>
+      <form class="newsletter__form" action="#" method="post">
+        <label class="sr-only" for="email-cat">Correo electrónico</label>
+        <input id="email-cat" name="email" type="email" placeholder="tu@email.com" required>
+        <button type="submit" class="btn btn--primary">Suscribirme</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html">
+          <span class="brand__logo">Velóx</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
+        </a>
+        <p>© <span id="year">2025</span> Velóx Bikes. Todos los derechos reservados.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Garantía</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Tiendas</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Strava</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <span class="sr-only" aria-live="polite">Catálogo cargado</span>
+</body>
+</html>

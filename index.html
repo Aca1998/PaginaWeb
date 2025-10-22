@@ -14,6 +14,39 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+
+  <!-- Login modal (checkbox hack) -->
+<input type="checkbox" id="login-toggle" class="sr-only" />
+
+<div class="login-overlay" aria-hidden="true">
+  <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <header class="login-modal__head">
+      <h2 id="login-title">Iniciar sesión</h2>
+      <!-- etiqueta que desactiva el checkbox para cerrar -->
+      <label for="login-toggle" class="login-close" aria-label="Cerrar">✕</label>
+    </header>
+
+    <form class="login-form" action="#" method="post" autocomplete="on">
+      <label class="login-label" for="login-email">Correo</label>
+      <input id="login-email" name="email" type="email" placeholder="tu@correo.com" required>
+
+      <label class="login-label" for="login-pass">Contraseña</label>
+      <input id="login-pass" name="password" type="password" placeholder="••••••••" required>
+
+      <div class="login-row">
+        <label class="login-remember"><input type="checkbox" name="remember"> Recuérdame</label>
+        <a class="login-forgot" href="#">¿Olvidaste la contraseña?</a>
+      </div>
+
+      <button class="btn btn--primary btn--block" type="submit">Entrar</button>
+
+      <div class="login-footer">
+        <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
   <!-- Barra superior -->
   <header class="topbar">
     <div class="container topbar__wrap">
@@ -30,7 +63,7 @@
       </nav>
 
       <div class="actions">
-        <a class="actions__btn actions__btn--ghost" href="#">Acceder</a>
+        <label for="login-toggle" class="actions__btn actions__btn--ghost" style="cursor:pointer;">Acceder</label>
         <a class="actions__btn actions__btn--solid" href="#">Ver catálogo</a>
       </div>
 
@@ -122,7 +155,7 @@
         <article class="product-card">
           <div class="product-card__img product-card__img--1" role="img" aria-label="Bicicleta de carretera negra mate"></div>
           <div class="product-card__info">
-            <h3 class="product-card__title">VXR Aero 9</h3>
+            <h3 class="product-card__title">BH RS1 Aero 9</h3>
             <p class="product-card__meta">Carbono | 7.2 kg</p>
             <p class="product-card__price">2.399 €</p>
             <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
@@ -133,7 +166,7 @@
         <article class="product-card">
           <div class="product-card__img product-card__img--2" role="img" aria-label="Bicicleta de montaña color arena"></div>
           <div class="product-card__info">
-            <h3 class="product-card__title">TrailMaster X</h3>
+            <h3 class="product-card__title">BH EXPERT</h3>
             <p class="product-card__meta">Aluminio | 12 vel</p>
             <p class="product-card__price">1.299 €</p>
             <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
@@ -144,8 +177,8 @@
         <article class="product-card">
           <div class="product-card__img product-card__img--3" role="img" aria-label="Bicicleta gravel verde oliva"></div>
           <div class="product-card__info">
-            <h3 class="product-card__title">Gravel One</h3>
-            <p class="product-card__meta">Acero cromoly | 11 vel</p>
+            <h3 class="product-card__title">GRAVEL GRX</h3>
+            <p class="product-card__meta">Aluminio Shimano di2 | 11 vel</p>
             <p class="product-card__price">1.549 €</p>
             <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
           </div>
@@ -155,7 +188,7 @@
         <article class="product-card">
           <div class="product-card__img product-card__img--4" role="img" aria-label="Bicicleta eléctrica urbana gris"></div>
           <div class="product-card__info">
-            <h3 class="product-card__title">City E-Flow</h3>
+            <h3 class="product-card__title">Haibike Hybe 7</h3>
             <p class="product-card__meta">Motor 250W | 90 km</p>
             <p class="product-card__price">1.999 €</p>
             <a href="#" class="btn btn--block btn--primary">Añadir al carrito</a>
@@ -221,9 +254,9 @@
     <div class="container footer__grid">
       <div class="footer__brand">
         <a class="brand" href="#">
-          <span class="brand__logo">Velóx</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
+          <span class="brand__logo">Alfonso</span><span class="brand__dot">•</span><span class="brand__tag">Bikes</span>
         </a>
-        <p>© <span id="year">2025</span> Velóx Bikes. Todos los derechos reservados.</p>
+        <p>© <span id="year">2025</span> Alfonso Bikes. Todos los derechos reservados.</p>
       </div>
       <div class="footer__cols">
         <div>
