@@ -1,0 +1,98 @@
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer img {
+  margin-top: 0.5rem;
+  height: 31px;
+}
+
+
+.footer__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 2rem 0;
+}
+
+.footer__brand p {
+  color: var(--muted);
+  margin-top: .4rem;
+}
+
+.footer__cols {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.footer__cols h4 {
+  margin-bottom: .4rem;
+}
+
+.footer__cols ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .3rem;
+}
+
+.footer__cols a {
+  color: var(--muted);
+}
+
+.footer__cols a:hover {
+  color: var(--text);
+}
+
+@media (min-width: 900px) {
+  .footer__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .footer__cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #00bcd4;
+}
+
+/* 🔹 Centrado real forzado con flexbox */
+.licencia-iconos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* espacio entre iconos */
+  margin-top: 10px;
+}
+
+.licencia-iconos img {
+  width: 30px;
+  height: 30px;
+
+}

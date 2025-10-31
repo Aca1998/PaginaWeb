@@ -1,0 +1,120 @@
+/* ---------- Topbar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  backdrop-filter: blur(10px) saturate(140%);
+}
+
+.topbar__wrap {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: .8rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .25rem;
+  font-family: Montserrat, Inter, sans-serif;
+  letter-spacing: .5px;
+}
+
+.brand__logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.brand__dot {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.brand__tag {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav {
+  display: none;
+  gap: 1rem;
+}
+
+.nav__link {
+  padding: .5rem .75rem;
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.nav__link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, .06);
+}
+
+.actions {
+  display: none;
+  gap: .5rem;
+}
+
+.actions__btn {
+  padding: .6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.actions__btn--ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.actions__btn--solid {
+  background: linear-gradient(90deg, var(--primary-600), var(--accent));
+  color: #0b1020;
+  border: none;
+  box-shadow: 0 8px 20px rgba(34, 211, 238, .35);
+}
+
+.actions__btn--solid:hover {
+  filter: brightness(1.05);
+}
+
+.burger {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .08);
+  cursor: pointer;
+}
+
+.burger__bar {
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  display: block;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: transform .2s ease;
+}
+
+/* Desktop nav visible */
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+
+  .actions {
+    display: flex;
+  }
+
+  .burger {
+    display: none;
+  }
+}

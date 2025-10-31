@@ -1,0 +1,384 @@
+/* ---------- Helpers (solo las relacionadas a la estructura de la página) ---------- */
+.container {
+  width: min(100%, calc(var(--container) + 2rem));
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.section {
+  padding: clamp(3rem, 5vw, 5rem) 0;
+}
+
+.section--tight {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.section--alt {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0) 40%),
+    linear-gradient(0deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0) 40%);
+  backdrop-filter: saturate(120%);
+}
+
+.section__head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section__head h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+}
+
+.section__desc {
+  max-width: 60ch;
+  margin: .5rem auto 0;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: center;
+  overflow: clip;
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  isolation: isolate;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(167, 139, 250, .25), transparent 40%),
+    linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .65)),
+    url("img/fondoindex.webp");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(110%) contrast(105%);
+  transform: scale(1.03);
+}
+
+.hero__content {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  letter-spacing: .5px;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, .5);
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  max-width: 60ch;
+  margin: .8rem 0 1.2rem;
+}
+
+.hero__cta {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
+.hero__badges {
+  display: flex;
+  gap: .5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+
+.hero__badges li {
+  font-weight: 600;
+  color: #0b1020;
+  background: linear-gradient(90deg, #b9f6ff, #d9ccff);
+  border-radius: 999px;
+  padding: .45rem .8rem;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 1.2rem;
+  opacity: .8;
+  animation: floatY 2.2s ease-in-out infinite;
+  color: color-mix(in oklab, white 80%, var(--primary));
+}
+
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ---------- Grid helpers ---------- */
+.grid {
+  display: grid;
+  gap: var(--gap);
+}
+
+.grid--cats {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+  .grid--cats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .grid--cats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.grid--products {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 700px) {
+  .grid--products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid--products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Cards categorías ---------- */
+.card {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+  display: grid;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, .18);
+  box-shadow: var(--shadow-2);
+}
+
+.card__media {
+  aspect-ratio: 16/10;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .35));
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+.card__body h3 {
+  margin-bottom: .25rem;
+}
+
+.card__body p {
+  margin: 0;
+}
+
+/* Fondos de categorías (puedes cambiarlos) */
+.card__media--road {
+  background-image:
+    url("img/orbea-orca-aero-t50.jpg");
+}
+
+.card__media--mtb {
+  background-image:
+    url("img/imgconfigmtb-negro.png");
+}
+
+.card__media--gravel {
+  background-image:
+    url("img/imgconfigcarretera-rojo.png");
+}
+
+.card__media--ebike {
+  background-image:
+    url("img/ebike.jpg");
+}
+
+/* ---------- Product cards ---------- */
+.product-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, .18);
+  box-shadow: var(--shadow-2);
+}
+
+.product-card__img {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.product-card__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .4));
+}
+
+/* Imágenes de ejemplo */
+.product-card__img--1 {
+  background-image:
+    url("img/BHrs1.png");
+}
+
+.product-card__img--2 {
+  background-image:
+    url("img/imgconfigmtb-verde.png");
+}
+
+.product-card__img--3 {
+  background-image:
+    url("img/imgconfigcarretera-verde.png");
+}
+
+.product-card__img--4 {
+  background-image:
+    url("img/ebike.jpg");
+}
+
+.product-card__info {
+  padding: 1rem;
+  display: grid;
+  gap: .4rem;
+}
+
+.product-card__title {
+  font-size: 1.05rem;
+}
+
+.product-card__meta {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.product-card__price {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: color-mix(in oklab, white 90%, var(--primary));
+}
+
+/* ---------- Features ---------- */
+.features {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 700px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  box-shadow: var(--shadow-1);
+}
+
+.feature__icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  background: linear-gradient(180deg, rgba(34, 211, 238, .15), rgba(167, 139, 250, .08));
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius-lg);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: var(--shadow-1);
+}
+
+@media (min-width: 900px) {
+  .newsletter {
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+  }
+}
+
+.newsletter__copy h2 {
+  margin-bottom: .4rem;
+}
+
+.newsletter__form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .6rem;
+}
+
+.newsletter__form input {
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: var(--text);
+  padding: .9rem .9rem;
+  outline: none;
+}
+
+.newsletter__form input::placeholder {
+  color: color-mix(in oklab, var(--muted) 80%, #fff);
+}
+
+/* ---------- Narrow screens adjustments ---------- */
+@media (max-width: 420px) {
+  .hero__cta .btn {
+    width: 100%;
+  }
+
+  .hero__badges {
+    flex-wrap: wrap;
+  }
+}
