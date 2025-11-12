@@ -24,11 +24,12 @@
       </a>
 
       <nav class="nav" aria-label="Principal">
-        <a href="#categorias" class="nav__link">Categorías</a>
+        <!-- <a href="#categorias" class="nav__link">Categorías</a>
         <a href="#destacados" class="nav__link">Destacados</a>
         <a href="#ventajas" class="nav__link">Ventajas</a>
-        <a href="#newsletter" class="nav__link">Ofertas</a>
+        <a href="#newsletter" class="nav__link">Ofertas</a> -->
       </nav>
+      
 
       <div class="actions">
         <a for="login-toggle" class="actions__btn actions__btn--ghost" style="cursor:pointer;" href="registro.html">Login</a>
@@ -44,17 +45,18 @@
   </header>
 
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__media" role="img" aria-label="Ciclista en carretera al amanecer"></div>
+    <div class="hero__media" role="img" aria-label="Ciclista en carretera al amanecer">
+      <video src="/video/videoplayback (1).mp4" autoplay loop muted style="width: 100%;"></video>
+    </div>
     <div class="container hero__content">
       <h1 id="hero-title" class="hero__title">
         Pedalea el futuro.
       </h1>
-      <p class="hero__subtitle">
+      <p class="hero__subtitle" >
         Bicicletas de alto rendimiento para carretera, montaña, gravel y e-bikes. Diseño minimalista, materiales premium.
       </p>
       <div class="hero__cta">
-        <a href="#destacados" class="btn btn--primary">Comprar ahora</a>
-        <a href="#categorias" class="btn btn--ghost">Explorar categorías</a>
+        <a href="" id="botonComprar" class="btn btn--primary">Comprar ahora</a>
       </div>
       <ul class="hero__badges" aria-label="Beneficios">
         <li>Envío 24/48h</li>
@@ -280,4 +282,13 @@
 
   <span class="sr-only" aria-live="polite">Contenido actualizado</span>
 </body>
+<video src="/video/videoplayback.mp4" id="videoBici"></video>
+<audio src="/audio/Timbre de bicicleta (efecto de sonido).mp3" id="audioTimbre"></audio>
+<script>
+    const audio = document.querySelector('#audioTimbre');
+    document.querySelector('#botonComprar').addEventListener('click', (e) => {
+        e.preventDefault(); 
+        audio.play();
+    });
+</script>
 </html>
