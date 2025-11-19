@@ -4,12 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfonso Bikes Promociones</title>
-
+    <title>Promociones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="/scss/style.css" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
@@ -19,10 +16,14 @@
             --primary-600: #22d3ee;
             --accent: #a78bfa;
             --muted: #a1a8c7;
+            --text: #e6e8ef;
+            --radius: 16px;
+            --radius-lg: 22px;
+            --bg-2: #0e1428; 
+            --ok: #22c55e;
         }
 
         body {
-
             background:
                 radial-gradient(1200px 600px at 80% -10%, #1e2a55 0%, transparent 60%),
                 radial-gradient(900px 500px at -10% 10%, #28336b 0%, transparent 60%),
@@ -30,108 +31,210 @@
             color: white;
         }
 
-        .promo-banner {
-            background-image: linear-gradient(rgba(11, 16, 32, 0.7), rgba(11, 16, 32, 0.7)), url('img/fondo-promo-ejemplo.webp');
+
+        .carousel-item-custom {
+            height: 80vh; 
             background-size: cover;
             background-position: center;
-            border-radius: 22px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-bottom-left-radius: var(--radius-lg);
+            border-bottom-right-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 2rem;
+            filter: brightness(0.85); 
         }
+
+        .carousel-item-custom::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .carousel-caption-custom {
+            position: absolute; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 90%;
+            text-align: center;
+        }
+
+        .carousel-caption-custom h1, .carousel-caption-custom h2 {
+            font-size: clamp(2.2rem, 6vw, 4.2rem);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        @keyframes pulse-shine {
+            0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+        }
+
+        .btn--solid.btn-animated {
+
+            animation: pulse-shine 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        #promo-slide-1 { background-image: url('img/historia.webp'); }
+        #promo-slide-2 { background-image: url('img/orbea-orca-aero-t50.jpg'); }
+        #promo-slide-3 { background-image: url('img/fono_sobre_nosotros.webp'); }
     </style>
 </head>
 
 <body>
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
-        style="background-color: #0e1428; border-bottom: 1px solid rgba(255, 255, 255, .06);">
-        <div class="container">
+    
+    <header class="topbar">
+        <div class="container topbar__wrap">
             <a class="brand" href="index.html">
-                <span class="brand__logo">Alfonso</span><span class="brand__dot"></span><span
-                    class="brand__tag">Bikes</span>
+                <span class="brand__logo">Alfonso</span><span class="brand__dot"></span><span class="brand__tag">Bikes</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+            <nav class="nav" aria-label="Principal">
+                <a href="index.html#categorias" class="nav__link">Categorías</a>
+                <a href="index.html#destacados" class="nav__link">Destacados</a>
+                <a href="index.html#ventajas" class="nav__link">Ventajas</a>
+                <a href="tienda.html" class="nav__link">Tienda</a>
+                <a href="promociones.html" class="nav__link">Promociones</a>
+            </nav>
+            
+            <div class="actions">
+                <a href="login.html" class="actions__btn actions__btn--ghost" style="cursor:pointer;">Login</a>
+                <a class="actions__btn actions__btn--solid" href="registro.html">Registro</a>
+            </div>
+
+            <button class="burger" aria-label="Abrir menú" aria-expanded="false">
+                <span class="burger__bar"></span>
+                <span class="burger__bar"></span>
+                <span class="burger__bar"></span>
             </button>
-
         </div>
-    </nav>
+    </header>
+    <section class="p-0" aria-labelledby="promo-title">
+        <div id="promoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+            
+            <div class="carousel-indicators" style="z-index: 2;">
+                <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+           
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active carousel-item-custom" id="promo-slide-1">
+                    <div class="container carousel-caption-custom text-white">
+                        <h2 class="display-3 fw-bold">Descubre Nuestras Promociones.</h2>
+                        <p class="fs-4 mt-3" style="color: var(--text);">Disfruta de un codigo descuento solo por registrarte.</p>
+                        <a href="tienda.html" class="btn btn--primary btn-lg mt-3">
+                            Ir a la Tienda
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Promoción de Llantas -->
+                <div class="carousel-item carousel-item-custom" id="promo-slide-2">
+                    <div class="container carousel-caption-custom text-white">
+                         <span class="badge rounded-pill mb-3" style="background-color: var(--primary-600); color: var(--bg);">PROMOCIÓN</span>
+                        <h2 class="display-3 fw-bold">20% OFF en Llantas Premium.</h2>
+                        <p class="fs-4 mt-3" style="color: var(--text);">Mejora el rendimiento con el código: **Alfonso2025**.</p>
+                        <a href="tienda.html" class="btn btn--primary btn-lg mt-3">
+                            Ir a la Tienda
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Evento Especial -->
+                <div class="carousel-item carousel-item-custom" id="promo-slide-3">
+                    <div class="container carousel-caption-custom text-white">
+                        <span class="badge rounded-pill mb-3" style="background-color: var(--accent);">EVENTO</span>
+                        <h2 class="display-3 fw-bold">Ruta MTB Nocturna "Moonride".</h2>
+                        <p class="fs-4 mt-3" style="color: var(--text);">Inscríbete para nuestra emocionante ruta de montaña. ¡Sábado 15 de Noviembre!</p>
+                       <a href="tienda.html" class="btn btn--primary btn-lg mt-3">
+                            Inscribirse
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Controles del Slider -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
     <main class="container my-5">
-
-        <div class="promo-banner text-center text-white p-5 mb-5">
-            <h1 class="display-5 fw-bold" style="font-family: 'Montserrat', sans-serif;">
-                ¡Lanzamiento: La E-Gravel 'Pulsar'!
-            </h1>
-            <p class="fs-4 mt-3 text-light">
-                Descubre nuestra bicicleta Gravel eléctrica con autonomía extendida y componentes tope de gama.
-            </p>
-            <a href="/img/ebike.jpg" class="btn btn-custom-primary btn-lg mt-3">Ver Nuevo Producto</a>
-        </div>
-
-        <h2 class="text-center mb-4 text-light" style="font-family: 'Montserrat', sans-serif;">Promociones Exclusivas y
-            Próximos Eventos</h2>
-
-
+        <h2 class="text-center mb-5" style="color: var(--text);">Otras Promociones y Servicios</h2>
+        
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
+            <!-- Carta 1 -->
             <div class="col">
                 <div class="card h-100 p-0 border-0 shadow-lg">
                     <img src="img/orbea-orca-aero-t50.jpg" class="card-img-top" alt="Descuento Ruedas"
                         style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
-                    <div class="card-body">
-                        <span class="badge rounded-pill text-bg-info mb-2">PROMOCIÓN</span>
+                    <div class="card__body">
+                        <span class="badge rounded-pill" style="background-color: var(--primary-600); color: var(--bg);">PROMOCIÓN</span>
                         <h5 class="card-title text-light">20% OFF en Llantas Premium</h5>
                         <p class="card-text text-white">Mejora el rendimiento de tu bicicleta con un 20% de descuento en
                             las marcas seleccionadas.</p>
-                        <ul class="list-unstyled text-muted small">
+                        <ul class="list-unstyled small">
                             <li class="text-white"><i class="bi bi-calendar me-2"></i>Válido hasta 31/12</li>
                             <li class="text-white"><i class="bi bi-tags-fill me-2"></i>Código: Alfonso2025</li>
                         </ul>
                     </div>
                     <div class="card-footer border-0 p-3">
-                        <a href="producto.html" class="btn btn-outline-info w-100">Aplicar Codigo Descuento</a>
+                        <a href="tienda.html" class="btn btn--ghost w-100" style="color: var(--primary-600); border-color: var(--primary-600);">Aplicar Codigo Descuento</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Carta 2 -->
             <div class="col">
                 <div class="card h-100 p-0 border-0 shadow-lg">
                     <img src="/img/fono_sobre_nosotros.webp" class="card-img-top" alt="Evento Ruta MTB"
                         style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
-                    <div class="card-body">
+                    <div class="card__body">
                         <span class="badge rounded-pill" style="background-color: var(--accent);">EVENTO</span>
                         <h5 class="card-title text-light">Ruta MTB Nocturna "Moonride"</h5>
                         <p class="card-text text-white">Únete a nuestra emocionante ruta de
                             montaña. ¡Diversión, retos y
                             un buen refrigerio final!</p>
-                        <ul class="list-unstyled text-muted small">
+                        <ul class="list-unstyled small">
                             <li class="text-white"><i class="bi bi-calendar me-2"></i>Punto de encuentro: Parque Central</li>
                             <li class="text-white"><i class="bi bi-tags-fill me-2"></i>Fecha: Sábado 15 de Noviembre</li>
                         </ul>
                     </div>
                     <div class="card-footer border-0 p-3">
-                        <a href="producto.html" class="btn btn-outline-info w-100">Inscribirse al Evento</a>
+                         <a href="producto.html" class="btn btn--ghost w-100" style="color: var(--primary-600); border-color: var(--primary-600);">Inscribirse al Evento</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Carta 3 -->
             <div class="col">
                 <div class="card h-100 p-0 border-0 shadow-lg">
                     <img src="img/sostenibilidad.webp" class="card-img-top" alt="Servicio Mantenimiento"
                         style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
-                    <div class="card-body">
-                        <span class="badge rounded-pill text-bg-warning mb-2">SERVICIO</span>
+                    <div class="card__body">
+                        <span class="badge rounded-pill" style="background-color: var(--surface-2); color: var(--text);">SERVICIO</span>
                         <h5 class="card-title text-light">Mantenimiento Express Gratuito</h5>
-                        <p class="card-text text-white" style="color: white;">Revisión y ajuste básico de tu bicicleta sin coste alguno
+                        <p class="card-text text-white">Revisión y ajuste básico de tu bicicleta sin coste alguno
                             durante la primera hora.</p>
-                        <ul class="list-unstyled text-muted small">
+                        <ul class="list-unstyled small">
                             <li class="text-white"><i class="bi bi-calendar me-2"></i>Incluye: Frenos y Cambios</li>
                             <li class="text-white"><i class="bi bi-tags-fill me-2"></i>Solo en talleres Autorizados</li>
                         </ul>
                     </div>
                     <div class="card-footer border-0 p-3">
-                        <a href="producto.html" class="btn btn-outline-info w-100">Pedir Cita para taller</a>
+                        <a href="producto.html" class="btn btn--ghost w-100" style="color: var(--primary-600); border-color: var(--primary-600);">Pedir Cita para taller</a>
                     </div>
                 </div>
             </div>
@@ -139,11 +242,17 @@
         </div>
     </main>
 
-    <footer class="text-center py-4 mt-5"
-        style="background-color: rgba(0, 0, 0, 0.4); border-top: 1px solid rgba(255, 255, 255, .06);">
-        <p class="text-white small mb-0">&copy; 2025 Alfonso Bikes. Todos los derechos reservados. | <a href="#"
-                class="text-info text-decoration-none">Aviso Legal</a></p>
+    <!-- ============================================== -->
+    <!--                     4. FOOTER                  -->
+    <!-- ============================================== -->
+    <footer class="footer">
+        <div class="container">
+             <p class="text-white small mb-0">&copy; 2025 Alfonso Bikes. Todos los derechos reservados. | <a href="#"
+                 class="text-info text-decoration-none" style="color: var(--primary-600);">Aviso Legal</a></p>
+        </div>
     </footer>
+    
+    <!-- Scripts de Bootstrap (Necesario para el Carrusel) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
